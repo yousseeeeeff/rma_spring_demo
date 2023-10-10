@@ -21,7 +21,10 @@ public class Profile {
     @Embedded
     Adresse adresse;
 
-    @OneToOne(mappedBy = "profile")
+    @OneToOne(mappedBy = "profile" , fetch = FetchType.LAZY)
     User user;
+    int getPrenomSize() {
+        return prenom.length;
+    }
 }
 

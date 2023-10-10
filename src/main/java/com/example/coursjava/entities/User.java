@@ -1,14 +1,15 @@
 package com.example.coursjava.entities;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
+
+import static jakarta.persistence.GenerationType.*;
 
 @Entity
 @Table(name="For_User")
 @Data
 public class User {
-
     @Id
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     @Column(name = "username", unique = true, nullable = false, length = 50)
@@ -18,4 +19,5 @@ public class User {
 
     @OneToOne
     Profile profile;
+
 }
